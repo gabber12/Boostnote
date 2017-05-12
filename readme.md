@@ -25,12 +25,12 @@
 
 ## Slack Group
 Let's talk about Boostnote's great features, new feature requests and things like Japanese gourmet. 🍣 <br>
-[Join us](https://boostnote-group.slack.com/shared_invite/MTcxMjIwODk5Mzk3LTE0OTI1NjQxNDUtMTkwZTBjOWFkMg)
+[Join us](https://boostnote-group.slack.com/shared_invite/MTgwMDk4NzMzMDg4LTE0OTQzMzQwNTgtYTM2Yzg1ZmQ0MA)
 
 ## More Information
 * [Website](https://boostnote.io)
 * [Boostnote Shop](https://boostnote.paintory.com/) : Products are shipped to all over the world 🌏
-* [Donate via Patreon](https://www.patreon.com/boostnote) : Thank you for your support 🎉
+* [Donate via Bountysource](https://salt.bountysource.com/teams/boostnote) : Thank you for your support 🎉
 * [GitHub Issues](https://github.com/BoostIO/Boostnote/issues) : We'd love to hear your feedback 🙌
 * [Development](https://github.com/BoostIO/Boostnote/blob/master/docs/build.md) : Development configurations for Boostnote 🚀
 * Copyright (C) 2017 Maisin&Co.

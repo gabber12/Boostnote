@@ -42,10 +42,6 @@ class InitModal extends React.Component {
     }
   }
 
-  handleCloseButtonClick (e) {
-    this.props.close()
-  }
-
   handlePathChange (e) {
     this.setState({
       path: e.target.value
@@ -188,12 +184,6 @@ class InitModal extends React.Component {
     })
   }
 
-  handleKeyDown (e) {
-    if (e.keyCode === 27) {
-      this.props.close()
-    }
-  }
-
   render () {
     if (this.state.isLoading) {
       return <div styleName='root--loading'>
@@ -210,7 +200,6 @@ class InitModal extends React.Component {
         <div styleName='header'>
           <div styleName='header-title'>Initialize Storage</div>
         </div>
-        <ModalEscButton handleEscButtonClick={(e) => this.handleCloseButtonClick(e)} />
         <div styleName='body'>
           <div styleName='body-welcome'>
             Welcome!
