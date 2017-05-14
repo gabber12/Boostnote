@@ -1,4 +1,8 @@
 class CMMarkDownMap {
+  constructor (keymap) {
+    this.keymap = keymap
+  }
+
   insertAround (doc, start, end) {
     const cursor = doc.getCursor()
     if (doc.somethingSelected()) {
@@ -31,33 +35,54 @@ class CMMarkDownMap {
     }
   }
 
-  markdownKeys () {
+  getActionHandlers () {
     return {
-      'Ctrl-B': (cm) => {
+      'bold': (cm) => {
         this.insertAround(cm, '**', '**')
       },
-      'Ctrl-I': (cm) => {
+      'italicize': (cm) => {
         this.insertAround(cm, '*', '*')
       },
-      'Ctrl-\'': (cm) => {
+      'blockquote': (cm) => {
         this.insertBefore(cm, '>', '2')
       },
-      'Ctrl-,': (cm) => {
+      'orderedlist': (cm) => {
         this.insertBefore(cm, '1. ', 3)
       },
-      'Ctrl-.': (cm) => {
+      'unorderedlist': (cm) => {
         this.insertBefore(cm, '* ', 2)
       },
-      'Ctrl-H': (cm) => {
+      'hr': (cm) => {
         const cursor = cm.getCursor()
         cm.replaceRange('---', { line: cursor.line, ch: cursor.ch })
       },
-      'Ctrl-K': (cm) => {
+      'link': (cm) => {
         this.insertAround(cm, '[', '](http://)')
       }
     }
   }
+
+  markdownKeys () {
+    const action = this.keymap
+    const actionHandlers = this.getActionHandlers()
+    const keymap = {}
+
+    for (const name in actionHandlers) {
+      keymap[action[name]] = actionHandlers[name]
+    }
+    return keymap
+  }
 }
 
-const markdownKeys = new CMMarkDownMap()
+const keymap = {
+  'bold': 'Ctrl-B',
+  'italicize': 'Ctrl-I',
+  'blockquote': 'Ctrl-\'',
+  'orderedlist': 'Ctrl-,',
+  'unorderedlist': 'Ctrl-.',
+  'hr': 'Ctrl-H',
+  'link': 'Ctrl-K'
+}
+
+const markdownKeys = new CMMarkDownMap(keymap)
 export default markdownKeys
